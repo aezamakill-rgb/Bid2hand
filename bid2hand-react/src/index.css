@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background-color: #000;
+  font-family: "Sarabun", sans-serif;
+}
+
+h1,
+h2,
+p {
+  color: white;
+}
+
+a {
+  color: #0ff;
+}
+
+a:hover {
+  color: #ff0;
+}
