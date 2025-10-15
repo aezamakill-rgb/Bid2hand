@@ -1,29 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+const navItems = [
+  { to: "/", label: "หน้าแรก", end: true },
+  { to: "/auction", label: "ประมูล" },
+  { to: "/game", label: "มินิเกม" },
+  { to: "/about", label: "เกี่ยวกับเรา" },
+];
 
 export default function Navbar() {
   return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: "20px",
-        background: "#111",
-        padding: "15px",
-      }}
-    >
-      <Link style={{ color: "#0ff", textDecoration: "none" }} to="/">
-        หน้าแรก
-      </Link>
-      <Link style={{ color: "#0ff", textDecoration: "none" }} to="/auction">
-        ประมูล
-      </Link>
-      <Link style={{ color: "#0ff", textDecoration: "none" }} to="/game">
-        มินิเกม
-      </Link>
-      <Link style={{ color: "#0ff", textDecoration: "none" }} to="/about">
-        เกี่ยวกับเรา
-      </Link>
+    <nav className="site-nav">
+      <div className="container nav-inner">
+        <Link className="brand" to="/">
+          Bid2hand
+        </Link>
+        <div className="nav-links">
+          {navItems.map(({ to, label, end }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={end}
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              {label}
+            </NavLink>
+          ))}
+        </div>
+        <Link className="nav-cta" to="/auction">
+          เข้าร่วมการประมูล
+        </Link>
+      </div>
     </nav>
   );
 }

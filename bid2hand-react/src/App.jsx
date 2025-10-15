@@ -4,13 +4,13 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <div className="app-shell">
       <Navbar />
-      <main style={{ minHeight: "80vh", padding: "20px" }}>
+      <main className="main-content">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

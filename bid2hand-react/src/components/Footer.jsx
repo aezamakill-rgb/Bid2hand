@@ -1,14 +1,22 @@
+const footerLinks = [
+  { href: "/auction", label: "ประมูล" },
+  { href: "/game", label: "มินิเกม" },
+  { href: "/about", label: "เกี่ยวกับเรา" },
+];
+
 export default function Footer() {
   return (
-    <footer
-      style={{
-        textAlign: "center",
-        padding: "20px",
-        background: "#111",
-        color: "#aaa",
-      }}
-    >
-      <p>© 2025 Bid2hand — Powered by Samurai Express</p>
+    <footer className="footer">
+      <div className="container">
+        <small>© {new Date().getFullYear()} Bid2hand — Powered by Samurai Express</small>
+        <div className="footer-links">
+          {footerLinks.map(({ href, label }) => (
+            <a key={href} href={href}>
+              {label}
+            </a>
+          ))}
+        </div>
+      </div>
     </footer>
   );
 }
